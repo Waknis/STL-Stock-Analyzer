@@ -170,7 +170,15 @@ public:
         const string divFileName = ticker + "div.csv";
         const string navOutputFileName = ticker + "nav.txt";
         const string divOutputFileName = ticker + "div.txt";
-        cout << "Reading file " << navFileName << " into map<Date,float> ..." << endl;
+        
+#include <fstream>
+
+// Open a CSV file for output
+ofstream csvFile("output.csv");
+csvFile << "Date, Fund1, Fund2\n";  // Example header
+
+// Now, we output to CSV instead of console
+csvFile << "Reading file " << navFileName << " into map<Date,float> ..." << endl;
         ifstream navFile(navFileName.c_str());
         if (!navFile)
         {
